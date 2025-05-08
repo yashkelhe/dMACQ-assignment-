@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 export default function BlogDetailPage() {
   const { id } = useParams();
-  const router = useRouter();
+
   const token = Cookies.get("token");
 
   const { data, isLoading, error } = useQuery({

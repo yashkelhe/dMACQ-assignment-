@@ -1,22 +1,21 @@
-// src/app/api/posts/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> } // Mark params as a Promise
 ) {
+  const { id } = await context.params; // Await the params object
   const token = req.headers.get("authorization")?.split(" ")[1];
 
   if (token !== "mock-token-123") {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  const id = parseInt(params.id);
   const post = {
-    id,
+    id: parseInt(id || "0", 10),
     title: `Blog Post #${id}`,
-    content: `This is the full content of blog post #${id}.`,
+    content: `This is the full content of blog post #${id}. It contains detailed information.`,
   };
 
-  return NextResponse.json(post);
+  return NextResponse.json(post, { status: 200 });
 }

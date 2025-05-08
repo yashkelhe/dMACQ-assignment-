@@ -44,9 +44,11 @@ export default function BlogPage() {
       { threshold: 1.0 }
     );
 
-    if (observerRef.current) observer.observe(observerRef.current);
+    const currentRef = observerRef.current;
+
+    if (currentRef) observer.observe(currentRef);
     return () => {
-      if (observerRef.current) observer.unobserve(observerRef.current);
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 

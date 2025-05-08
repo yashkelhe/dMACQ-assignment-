@@ -27,7 +27,13 @@ export default function RegisterPage() {
     },
     // once you register redirect to login
     onSuccess: () => router.push("/login"),
-    onError: (err: any) => alert(err.message || "Registration failed"),
+    onError: (err: unknown) => {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("Registration failed");
+      }
+    },
   });
 
   const handleRegister = (e: React.FormEvent) => {
