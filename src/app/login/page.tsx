@@ -36,7 +36,10 @@ export default function LoginPage() {
         <h2 className="text-3xl font-semibold mb-6 text-center text-gray-700">
           Login
         </h2>
-        <div> email : test@example.com ; password : password123 </div>
+        <div className="text-black ">
+          {" "}
+          email : test@example.com ; password : password123{" "}
+        </div>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
             type="email"
