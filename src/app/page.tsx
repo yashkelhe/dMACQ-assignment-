@@ -16,7 +16,11 @@ export default function Home() {
           Discover and read amazing posts. Please login or register to get
           started!
         </p>
-
+        <div className="text-gray-600">Login with this credentials</div>
+        <div className="text-black">
+          <span>Email : test@example.com</span> ,{" "}
+          <span> password: password123</span>
+        </div>
         <div className="space-y-4">
           <button
             onClick={() => router.push("/login")}

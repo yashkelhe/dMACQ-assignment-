@@ -37,7 +37,6 @@ export default function LoginPage() {
           Login
         </h2>
         <div className="text-black ">
-          {" "}
           email : test@example.com ; password : password123{" "}
         </div>
         <form onSubmit={handleLogin} className="space-y-4">
